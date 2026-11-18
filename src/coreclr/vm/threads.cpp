@@ -8000,7 +8000,10 @@ void Thread::InitializeSpecialUserModeApc()
         return;
     }
 
-    s_pfnQueueUserAPC2Proc = pfnQueueUserAPC2Proc;
+    if (AreShadowStacksEnabled())
+    {
+        s_pfnQueueUserAPC2Proc = pfnQueueUserAPC2Proc;
+    }
 }
 
 #endif // FEATURE_SPECIAL_USER_MODE_APC
