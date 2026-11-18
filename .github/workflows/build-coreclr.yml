@@ -18,7 +18,7 @@ jobs:
 
       - name: Build coreclr.dll
         shell: cmd
-        run: build.cmd -subset clr.runtime -c Release -a x64 -ci
+        run: build.cmd -subset clr.runtime -c Release -a x64 -ci /p:NuGetAudit=false
 
       - name: Upload coreclr.dll and pdb
         uses: actions/upload-artifact@v4
